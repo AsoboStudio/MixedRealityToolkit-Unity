@@ -3,6 +3,7 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace HoloToolkit.Unity
 {
@@ -13,13 +14,19 @@ namespace HoloToolkit.Unity
     [Serializable]
     public class AudioContainer
     {
+        [FormerlySerializedAs("containerType")]
         [Tooltip("The type of the audio container.")]
         public AudioContainerType ContainerType = AudioContainerType.Random;
 
+        [FormerlySerializedAs("looping")]
         public bool Looping = false;
+        [FormerlySerializedAs("loopTime")]
         public float LoopTime = 0;
+        [FormerlySerializedAs("sounds")]
         public UAudioClip[] Sounds = null;
+        [FormerlySerializedAs("crossfadeTime")]
         public float CrossfadeTime = 0f;
+        [FormerlySerializedAs("currentClip")]
         public int CurrentClip = 0;
     }
 }

@@ -4,6 +4,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace HoloToolkit.Unity
 {
@@ -15,6 +16,7 @@ namespace HoloToolkit.Unity
     public partial class UAudioManagerBase<TEvent> : MonoBehaviour where TEvent : AudioEvent, new()
     {
         [SerializeField]
+        [FormerlySerializedAs("events")]
         protected TEvent[] Events = null;
 
         protected const float InfiniteLoop = -1;
