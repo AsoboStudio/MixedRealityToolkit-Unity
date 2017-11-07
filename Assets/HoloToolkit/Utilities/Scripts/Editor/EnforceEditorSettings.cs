@@ -38,6 +38,8 @@ namespace HoloToolkit.Unity
                 }
             }
 
+            //With perforce its not meaningful to force the popup from holotoolkit making version control on Visible Meta Files...
+            /*
             if (!EditorSettings.externalVersionControl.Equals("Visible Meta Files"))
             {
                 if (EditorUtility.DisplayDialog(
@@ -50,6 +52,7 @@ namespace HoloToolkit.Unity
                     Debug.Log("Updated external version control mode: " + EditorSettings.externalVersionControl);
                 }
             }
+            */
 
             #endregion
         }
