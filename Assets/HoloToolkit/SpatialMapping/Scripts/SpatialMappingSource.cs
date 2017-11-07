@@ -327,6 +327,22 @@ namespace HoloToolkit.Unity.SpatialMapping
             return meshRenderers;
         }
 
+        //HoloForge Add: Get the mesh Colliders of Spatial Mesh
+        virtual public List<MeshCollider> GetMeshColliders()
+        {
+            List<MeshCollider> meshColliders = new List<MeshCollider>();
+
+            for (int index = 0; index < SurfaceObjects.Count; index++)
+            {
+                if (SurfaceObjects[index].Collider != null)
+                {
+                    meshColliders.Add(SurfaceObjects[index].Collider);
+                }
+            }
+
+            return meshColliders;
+        }
+
         /// <summary>
         /// Saves all the currently created spatial source meshes in world space.
         /// </summary>

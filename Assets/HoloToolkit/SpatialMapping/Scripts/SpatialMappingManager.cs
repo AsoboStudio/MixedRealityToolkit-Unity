@@ -32,6 +32,10 @@ namespace HoloToolkit.Unity.SpatialMapping
         [SerializeField]
         private bool drawVisualMeshes = false;
 
+        [Tooltip("Determines if spatial mapping data have collision enabled.")]
+        [SerializeField]
+        private bool enableCollisions = false;
+
         [Tooltip("Determines if spatial mapping data will cast shadows.")]
         [SerializeField]
         private bool castShadows = false;
@@ -145,6 +149,23 @@ namespace HoloToolkit.Unity.SpatialMapping
                 {
                     drawVisualMeshes = value;
                     UpdateRendering(drawVisualMeshes);
+                }
+            }
+        }
+
+        //HoloForge Add: Enable/Disable Collision on Spatial Mesh
+        public bool EnableCollisions
+        {
+            get
+            {
+                return enableCollisions;
+            }
+            set
+            {
+                if (value != enableCollisions)
+                {
+                    enableCollisions = value;
+                    UpdateCollisions(enableCollisions);
                 }
             }
         }
@@ -335,6 +356,20 @@ namespace HoloToolkit.Unity.SpatialMapping
                     }
                 }
             }
+        }
+
+        //HoloForge Add: Enable/Disable Spatial Mesh colliders
+        private void UpdateCollisions(bool Enable)
+        {
+            List<MeshCollider> colliders = Source.GetMeshColliders();
+            for (int index = 0; index < colliders.Count; index++)
+            {
+                if (colliders[index] != null)
+                {
+                    colliders[index].enabled = Enable;
+                }
+            }
+
         }
     }
 }
