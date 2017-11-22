@@ -76,8 +76,8 @@ namespace HoloToolkit.Unity
         [Range(SpatialSoundSettings.MinimumGainDecibels, SpatialSoundSettings.MaximumGainDecibels)]
         public float MaxGain = SpatialSoundSettings.DefaultMaxGain;
 
-        [FormerlySerializedAs("attenuationCurve")]
-        [Tooltip("The volume attenuation curve for simple 3D sounds. Only used when positioning is set to 3D")]
+        [FormerlySerializedAs("attenuationCurve")]  
+        [Tooltip("The volume attenuation curve for simple 3D sounds. Used when positioning is set to 3D or Spatial")]    
         public AnimationCurve AttenuationCurve = AnimationCurve.EaseInOut(0f, 1f, 1f, 0f); // By default simple attenuation
 
         [FormerlySerializedAs("spatialCurve")]
@@ -92,7 +92,7 @@ namespace HoloToolkit.Unity
         [Tooltip("The lowpass attenuation curve for simple 3D sounds. Only used when positioning is set to 3D")]
         public AnimationCurve LowPassCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 0f); // by default no lowpass
 
-        [FormerlySerializedAs("reverbCurve")]
+        [FormerlySerializedAs("reverbCurve")] 
         [Tooltip("The reverb attenuation curve for simple 3D sounds. Only used when positioning is set to 3D")]
         public AnimationCurve ReverbCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 0f); // by default no reverb
 
@@ -106,7 +106,7 @@ namespace HoloToolkit.Unity
         [Range(SpatialSoundSettings.MinimumUnityGainDistanceMeters, SpatialSoundSettings.MaximumUnityGainDistanceMeters)]
         public float UnityGainDistance = SpatialSoundSettings.DefaultUnityGainDistance;
 
-        [FormerlySerializedAs("bus")]
+        [FormerlySerializedAs("bus")]   
         [Tooltip("The AudioMixerGroup to use when playing.")]
         public AudioMixerGroup AudioBus;
 
