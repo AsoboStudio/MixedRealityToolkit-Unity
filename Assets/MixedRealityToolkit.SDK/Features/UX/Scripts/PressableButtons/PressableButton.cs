@@ -151,7 +151,7 @@ namespace Microsoft.MixedReality.Toolkit.UI
             else if (currentPushDistance > 0.0f)
             {
                 // Retract the button.
-                currentPushDistance = Mathf.Max(0.0f, currentPushDistance - currentPushDistance * returnRate * Time.unscaledDeltaTime);
+                currentPushDistance = Mathf.Max(0.0f, currentPushDistance - currentPushDistance * returnRate * Time.deltaTime);
 
                 if (currentPushDistance < MaxRetractDistanceBeforeReset)
                 {
